@@ -6,12 +6,13 @@ let questionIndex = 0;
 axios.get(apiUrl).then(showQuestion);
 
 function showQuestion(response) {
-  console.log(response.data.results);
-  let results = response.data.results;
-
-  results.forEach(function (result) {
+  let questions = response.data.results;
+  console.log(response);
+  questions.forEach(function (result) {
     console.log(result.question);
     questions = result.question;
+    let category = document.querySelector("#category");
+    category.innerHTML = result.category;
     let questionDisplay = document.querySelector("#question");
     questionDisplay.innerHTML = result.question;
     console.log(result.incorrect_answers);
@@ -26,10 +27,13 @@ function showQuestion(response) {
   });
 }
 
-//function revealAnswer() {
-//let apiUrl = " https://opentdb.com/api.php?amount=50";
-//axios.get(apiUrl).then(showQuestion);
-//}
+function nextQuestion() {
+  questionIndex++;
+  axios.get(apiUrl).then(showQuestion);
+}
 
-//let answer = document.getElementById("answerButton");
-//answer.addEventListener("click", revealAnswer);
+let nextButton = document.querySelector("#next");
+nextButton.addEventListener("click", nextQuestion);
+
+let answerButton = document.querySelector("#answerButton");
+answerButton.addEventListener("click", revealAnswer);
