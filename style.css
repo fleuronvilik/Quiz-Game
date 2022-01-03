@@ -1,0 +1,13 @@
+.quiz {
+  text-align: center;
+}
+.title {
+  font-family: Montserrat;
+  font-size: 40px;
+  font-weight: bold;
+}
+h2,
+h3 {
+  font-family: Montserrat;
+  font-size: 25px;
+}
