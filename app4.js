@@ -14,6 +14,14 @@ function showQuestion(response) {
   questionPART.innerHTML = questions[questionIndex].question;
   let categoryPart = document.querySelector("#category");
   categoryPart.innerHTML = questions[questionIndex].category;
+  console.log(questions[questionIndex].correct_answer);
+  let correctAnswer = questions[questionIndex].correct_answer;
+
+  function revealAnswer() {
+    alert(`The correct answer is ${correctAnswer}!`);
+  }
+  let answer = document.getElementById("answerButton");
+  answer.addEventListener("click", revealAnswer);
 }
 
 function nextQuestion() {
