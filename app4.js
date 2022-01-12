@@ -22,8 +22,6 @@ function showQuestion(response) {
   let correctAnswer = questions[questionIndex].correct_answer;
 
   console.log(correctAnswer);
-  console.log(questions[questionIndex].incorrect_answers[0]);
-  let incorrectAnswer = questions[questionIndex].incorrect_answers;
 
   let answerOne = document.querySelector("#firstAnswer");
   answerOne.innerHTML = correctAnswer;
@@ -33,10 +31,8 @@ function showQuestion(response) {
   answerThree.innerHTML = questions[questionIndex].incorrect_answers[1];
   let answerFour = document.querySelector("#fourthAnswer");
   answerFour.innerHTML = questions[questionIndex].incorrect_answers[2];
-
   function checkAnswer() {
     alert(correctAnswer);
-    questionIndex++;
   }
 
   let showAnswer = document.querySelector("#answerButton");
