@@ -2,6 +2,7 @@ let apiUrl = "https://opentdb.com/api.php?amount=50";
 
 let questions = [];
 let questionIndex = 0;
+let userAnswer = "";
 
 axios.get(apiUrl).then(showQuestion);
 
@@ -32,13 +33,15 @@ function showQuestion(response) {
   answerThree.innerHTML = questions[questionIndex].incorrect_answers[1];
   let answerFour = document.querySelector("#fourthAnswer");
   answerFour.innerHTML = questions[questionIndex].incorrect_answers[2];
-}
-function checkAnswer() {
-  alert("answerOne");
-}
 
-let showAnswer = document.querySelector("#answerButton");
-showAnswer.addEventListener("click", checkAnswer);
+  function checkAnswer() {
+    alert(correctAnswer);
+    questionIndex++;
+  }
+
+  let showAnswer = document.querySelector("#answerButton");
+  showAnswer.addEventListener("click", checkAnswer);
+}
 
 function nextQuestion() {
   axios.get(apiUrl).then(showQuestion);
