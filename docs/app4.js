@@ -10,7 +10,7 @@ axios.get(apiUrl).then(showQuestion);
 
 function showQuestion(response) {
   let questions = response.data.results;
-  console.log(questions);
+  // console.log(questions);
   console.log(questions[questionIndex]);
 
   // console.log(questions[questionIndex].question);
@@ -30,14 +30,18 @@ function showQuestion(response) {
   let shuffledAnswers = shuffleAnswers(answers)
   console.log(shuffledAnswers)
 
-  let answerOne = document.querySelector("#firstAnswer");
+  let labelElts = document.querySelectorAll("label")
+  for (let i = 0; i < shuffledAnswers.length; i++) {
+    labelElts[i].innerHTML = shuffledAnswers[i]
+  }
+/*   let answerOne = document.querySelector("#firstAnswer");
   answerOne.innerHTML = shuffledAnswers[0];
   let answerTwo = document.querySelector("#secondAnswer");
   answerTwo.innerHTML = shuffledAnswers[1];
   let answerThree = document.querySelector("#thirdAnswer");
   answerThree.innerHTML = shuffledAnswers[2];
   let answerFour = document.querySelector("#fourthAnswer");
-  answerFour.innerHTML = shuffledAnswers[3];
+  answerFour.innerHTML = shuffledAnswers[3]; */
   function checkAnswer() {
     alert(correctAnswer);
   }
